@@ -38,5 +38,5 @@ func NewCmd() *cobra.Command {
 
 func run() {
 	fmt.Printf("helm-operator version: %q, commit: %q, go version: %q, GOOS: %q, GOARCH: %q\n",
-		version.Version, version.GitCommit, runtime.Version(), runtime.GOOS, runtime.GOARCH)
+		version.GitVersion, version.GitCommit, runtime.Version(), runtime.GOOS, runtime.GOARCH)
 }
