@@ -19,21 +19,38 @@ package main
 import (
 	"log"
 
-	"github.com/spf13/cobra"
-
 	"github.com/joelanford/helm-operator/internal/cmd/run"
 	"github.com/joelanford/helm-operator/internal/cmd/version"
+	pluginv1 "github.com/joelanford/helm-operator/pkg/plugin/helm/v1"
+	"github.com/spf13/cobra"
+	"sigs.k8s.io/kubebuilder/pkg/cli"
 )
 
 func main() {
-	root := cobra.Command{
-		Use: "helm-operator",
+	commands := []*cobra.Command{
+		run.NewCmd(),
+		version.NewCmd(),
 	}
 
-	root.AddCommand(run.NewCmd())
-	root.AddCommand(version.NewCmd())
-
-	if err := root.Execute(); err != nil {
+	/*if err := commands.Execute(); err != nil {
+		log.Fatal(err)
+	}*/
+	c, err := cli.New(
+		cli.WithCommandName("helm-operator"),
+		cli.WithPlugins(
+			&pluginv1.Plugin{},
+		),
+		cli.WithDefaultPlugins(
+			&pluginv1.Plugin{},
+		),
+		cli.WithExtraCommands(commands...),
+	)
+	if err != nil {
 		log.Fatal(err)
 	}
+
+	if err := c.Run(); err != nil {
+		log.Fatal(err)
+	}
+
 }
