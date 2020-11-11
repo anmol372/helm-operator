@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= quay.io/anrastog/helm-operator
+IMG ?= quay.io/anrastog/helm-operator:canary
 
 SHELL=/bin/bash
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)

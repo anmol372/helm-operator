@@ -16,6 +16,7 @@ limitations under the License.
 
 package version
 
+//TODO: Hardcode it to version string to support importing and usage in operator-sdk
 var (
 	Version   = "unknown"
 	GitCommit = "unknown"
@@ -25,5 +26,5 @@ var (
 	// most recent operator-sdk release tag such that samples are generated with the correct versions
 	// in a release commit. Once each element that uses this version is moved to a separate repo
 	// and release process, this variable will be removed.
-	ImageVersion = "unknown"
+	//ImageVersion = "unknown"
 )

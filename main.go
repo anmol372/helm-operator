@@ -21,7 +21,7 @@ import (
 
 	"github.com/joelanford/helm-operator/internal/cmd/run"
 	"github.com/joelanford/helm-operator/internal/cmd/version"
-	pluginv1 "github.com/joelanford/helm-operator/pkg/plugin/helm/v1"
+	pluginv1 "github.com/joelanford/helm-operator/pkg/plugins/v1"
 	"github.com/spf13/cobra"
 	"sigs.k8s.io/kubebuilder/pkg/cli"
 )
@@ -31,10 +31,6 @@ func main() {
 		run.NewCmd(),
 		version.NewCmd(),
 	}
-
-	/*if err := commands.Execute(); err != nil {
-		log.Fatal(err)
-	}*/
 	c, err := cli.New(
 		cli.WithCommandName("helm-operator"),
 		cli.WithPlugins(

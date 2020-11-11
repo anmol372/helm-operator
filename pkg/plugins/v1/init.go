@@ -28,11 +28,9 @@ import (
 	"sigs.k8s.io/kubebuilder/pkg/plugin"
 	"sigs.k8s.io/kubebuilder/pkg/plugin/scaffold"
 
-	"github.com/joelanford/helm-operator/pkg/internal/chartutil"
-	"github.com/joelanford/helm-operator/pkg/internal/kubebuilder/cmdutil"
-	"github.com/joelanford/helm-operator/pkg/internal/manifests"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds"
-	"github.com/joelanford/helm-operator/pkg/internal/scorecard"
+	"github.com/joelanford/helm-operator/pkg/plugins/internal/kubebuilder/cmdutil"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/chartutil"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds"
 )
 
 type initPlugin struct {
@@ -148,28 +146,10 @@ func (p *initPlugin) Run() error {
 		return err
 	}
 
-	// Run SDK phase 2 plugins.
-	if err := p.runPhase2(); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// SDK phase 2 plugins.
-func (p *initPlugin) runPhase2() error {
-	if err := manifests.RunInit(p.config); err != nil {
-		return err
-	}
-	if err := scorecard.RunInit(p.config); err != nil {
-		return err
-	}
-
-	if p.doCreateAPI {
-		if err := p.apiPlugin.runPhase2(); err != nil {
-			return err
-		}
-	}
+	/*
+		Run SDK phase 2 plugins.
+		SDK will import helm-oprator from here and apply phase2 overlays on the base
+	*/
 
 	return nil
 }

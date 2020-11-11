@@ -26,13 +26,13 @@ import (
 	"sigs.k8s.io/kubebuilder/pkg/plugin/scaffold"
 
 	"github.com/joelanford/helm-operator/internal/version"
-	"github.com/joelanford/helm-operator/pkg/internal/chartutil"
-	"github.com/joelanford/helm-operator/pkg/internal/kubebuilder/machinery"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/kdefault"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/manager"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/prometheus"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/rbac"
+	"github.com/joelanford/helm-operator/pkg/plugins/internal/kubebuilder/machinery"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/chartutil"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/kdefault"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/manager"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/prometheus"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/rbac"
 )
 
 const (

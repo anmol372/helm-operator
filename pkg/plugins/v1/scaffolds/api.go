@@ -28,12 +28,12 @@ import (
 	"sigs.k8s.io/kubebuilder/pkg/model/resource"
 	"sigs.k8s.io/kubebuilder/pkg/plugin/scaffold"
 
-	"github.com/joelanford/helm-operator/pkg/internal/chartutil"
-	"github.com/joelanford/helm-operator/pkg/internal/kubebuilder/machinery"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/crd"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/rbac"
-	"github.com/joelanford/helm-operator/pkg/internal/scaffolds/internal/templates/config/samples"
+	"github.com/joelanford/helm-operator/pkg/plugins/internal/kubebuilder/machinery"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/chartutil"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/crd"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/rbac"
+	"github.com/joelanford/helm-operator/pkg/plugins/v1/scaffolds/internal/templates/config/samples"
 )
 
 var _ scaffold.Scaffolder = &apiScaffolder{}

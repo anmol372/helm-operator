@@ -25,7 +25,7 @@ import (
 	"sigs.k8s.io/kubebuilder/pkg/model"
 	"sigs.k8s.io/kubebuilder/pkg/model/file"
 
-	"github.com/joelanford/helm-operator/pkg/internal/kubebuilder/filesystem"
+	"github.com/joelanford/helm-operator/pkg/plugins/internal/kubebuilder/filesystem"
 )
 
 func TestScaffold(t *testing.T) {
