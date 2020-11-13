@@ -146,11 +146,6 @@ func (p *initPlugin) Run() error {
 		return err
 	}
 
-	/*
-		Run SDK phase 2 plugins.
-		SDK will import helm-oprator from here and apply phase2 overlays on the base
-	*/
-
 	return nil
 }
 

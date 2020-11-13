@@ -16,15 +16,8 @@ limitations under the License.
 
 package version
 
-//TODO: Hardcode it to version string to support importing and usage in operator-sdk
 var (
+	//TODO: Hardcode it to version string to support importing and usage in operator-sdk
 	Version   = "unknown"
 	GitCommit = "unknown"
-
-	// ImageVersion represents the ansible-operator, helm-operator, and scorecard subproject versions,
-	// which is used in each plugin to specify binary and/or image versions. This is set to the
-	// most recent operator-sdk release tag such that samples are generated with the correct versions
-	// in a release commit. Once each element that uses this version is moved to a separate repo
-	// and release process, this variable will be removed.
-	//ImageVersion = "unknown"
 )

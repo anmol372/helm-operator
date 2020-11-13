@@ -40,7 +40,7 @@ func (f *Dockerfile) SetTemplateDefaults() error {
 }
 
 const dockerfileTemplate = `# Build the manager binary
-FROM quay.io/anrastog/helm-operator:{{.HelmOperatorVersion}}
+FROM quay.io/joelanford/helm-operator:{{.HelmOperatorVersion}}
 
 ENV HOME=/opt/helm
 COPY watches.yaml ${HOME}/watches.yaml

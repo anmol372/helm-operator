@@ -24,7 +24,6 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
-	"k8s.io/klog"
 	ctrl "sigs.k8s.io/controller-runtime"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	zapl "sigs.k8s.io/controller-runtime/pkg/log/zap"
@@ -45,14 +44,13 @@ func NewCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "run",
 		Short: "Run the helm operator controller",
+		Run: func(cmd *cobra.Command, _ []string) {
+			logf.SetLogger(zapl.New(zapl.UseFlagOptions(opts)))
+			r.run(cmd)
+		},
 	}
 	r.bindFlags(cmd.Flags())
 	cmd.Flags().AddGoFlagSet(zapfs)
-	cmd.Run = func(cmd *cobra.Command, _ []string) {
-		klog.InitFlags(flag.CommandLine)
-		logf.SetLogger(zapl.New(zapl.UseFlagOptions(opts)))
-		r.run(cmd)
-	}
 
 	return cmd
 }

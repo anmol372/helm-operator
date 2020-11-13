@@ -125,7 +125,7 @@ ifeq (, $(shell which helm-operator 2>/dev/null))
 	@{ \
 	set -e ;\
 	mkdir -p bin ;\
-	curl -LO https://github.com/operator-framework/operator-sdk/releases/download/{{ .HelmOperatorVersion }}/helm-operator-{{ .HelmOperatorVersion }}-$(ARCHOPER)-$(OSOPER) ;\
+	curl -LO https://github.com/joelanford/operator-sdk/releases/download/{{ .HelmOperatorVersion }}/helm-operator-{{ .HelmOperatorVersion }}-$(ARCHOPER)-$(OSOPER) ;\
 	mv helm-operator-{{ .HelmOperatorVersion }}-$(ARCHOPER)-$(OSOPER) ./bin/helm-operator ;\
 	chmod +x ./bin/helm-operator ;\
 	}

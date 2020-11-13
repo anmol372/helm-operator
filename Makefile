@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= quay.io/anrastog/helm-operator:canary
+IMG ?= quay.io/joelanford/helm-operator
 
 SHELL=/bin/bash
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
@@ -48,11 +48,11 @@ lint: golangci-lint
 
 # Build the docker image
 docker-build:
-	docker build . -t ${IMG}
+	docker build . -t ${IMG}:$(VERSION)
 
 # Push the docker image
 docker-push:
-	docker push ${IMG}
+	docker push ${IMG}:$(VERSION)
 
 # find or download controller-gen
 # download controller-gen if necessary
