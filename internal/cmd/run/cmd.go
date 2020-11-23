@@ -27,7 +27,9 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	zapl "sigs.k8s.io/controller-runtime/pkg/log/zap"
+	crmetrics "sigs.k8s.io/controller-runtime/pkg/metrics"
 
+	"github.com/joelanford/helm-operator/internal/metrics"
 	"github.com/joelanford/helm-operator/internal/version"
 	"github.com/joelanford/helm-operator/pkg/annotation"
 	"github.com/joelanford/helm-operator/pkg/manager"
@@ -92,6 +94,8 @@ func printVersion() {
 
 func (r *run) run(cmd *cobra.Command) {
 	printVersion()
+
+	metrics.RegisterBuildInfo(crmetrics.Registry)
 
 	// Deprecated: OPERATOR_NAME environment variable is an artifact of the legacy operator-sdk project scaffolding.
 	//   Flag `--leader-election-id` should be used instead.

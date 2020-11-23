@@ -18,6 +18,7 @@ package version
 
 var (
 	//TODO: Hardcode it to version string to support importing and usage in operator-sdk
-	Version   = "unknown"
-	GitCommit = "unknown"
+	Version    = "unknown"
+	GitCommit  = "unknown"
+	GitVersion = "unknown"
 )

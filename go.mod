@@ -11,6 +11,7 @@ require (
 	github.com/operator-framework/api v0.3.13
 	github.com/operator-framework/operator-lib v0.1.0
 	github.com/operator-framework/operator-sdk v1.1.0
+	github.com/prometheus/client_golang v1.5.1
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/afero v1.2.2
 	github.com/spf13/cobra v1.0.0
