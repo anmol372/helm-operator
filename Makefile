@@ -12,13 +12,15 @@ endif
 
 # GO_BUILD_ARGS should be set when running 'go build' or 'go install'.
 REPO = $(shell go list -m)
-VERSION = $(shell git describe --dirty --tags --always)
+SIMPLE_VERSION=$(shell (test "$(shell git describe)" = "$(shell git describe --abbrev=0)" && echo $(shell git describe)) || echo $(shell git describe --abbrev=0)+git)
+GIT_VERSION = $(shell git describe --dirty --tags --always)
 GIT_COMMIT = $(shell git rev-parse HEAD)
 GO_BUILD_ARGS = \
   -gcflags "all=-trimpath=$(shell dirname $(shell pwd))" \
   -asmflags "all=-trimpath=$(shell dirname $(shell pwd))" \
   -ldflags " \
-    -X '$(REPO)/internal/version.Version=$(VERSION)' \
+    -X '$(REPO)/internal/version.Version=$(SIMPLE_VERSION)' \
+	-X '$(REPO)/internal/version.GitVersion=$(GIT_VERSION)' \
     -X '$(REPO)/internal/version.GitCommit=$(GIT_COMMIT)' \
   " \
 

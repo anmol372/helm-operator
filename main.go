@@ -23,6 +23,7 @@ import (
 	"github.com/joelanford/helm-operator/internal/cmd/version"
 	pluginv1 "github.com/joelanford/helm-operator/pkg/plugins/v1"
 	"github.com/spf13/cobra"
+
 	"sigs.k8s.io/kubebuilder/pkg/cli"
 )
 
@@ -44,6 +45,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	//TODO: Add correct command descriptions once https://github.com/kubernetes-sigs/kubebuilder/pull/1830 is available.
 
 	if err := c.Run(); err != nil {
 		log.Fatal(err)
